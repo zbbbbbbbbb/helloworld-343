@@ -27,7 +27,7 @@ public abstract class BaseBackServlet extends HttpServlet {
             //从请求中获取method属性值
             // list
             String method = (String)req.getAttribute("method");
-            //利用反射 调用method方 法
+            //利用反射 调用method方法
             Method m = this.getClass().getMethod(method,HttpServletRequest.class,HttpServletResponse.class);
             //利用反射执行方法 根据方法的返回值 获取后续要进行跳转的路径 list
             String redirect = m.invoke(this,req,resp).toString();
